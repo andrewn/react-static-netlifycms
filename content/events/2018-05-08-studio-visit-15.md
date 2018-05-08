@@ -1,6 +1,6 @@
 ---
 layout: event
-title: 'Studio Visit #15'
+title: Studio Visit 15
 startDate: '2018-05-01T20:00:00+00:00'
 endDate: '2018-05-01T22:00:00+00:00'
 thumbnail: /uploads/image2.jpg
