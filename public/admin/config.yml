@@ -8,7 +8,7 @@ public_folder: "/uploads" # Folder path where uploaded files will be accessed, r
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Post" # Used in the UI
-    folder: "src/posts" # The path to the folder where the documents are stored
+    folder: "content/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter. 
@@ -19,3 +19,45 @@ collections:
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "event"
+    label: "Event"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "event"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Start Date", name: "startDate", widget: "datetime"}
+      - {label: "End Date", name: "endDate", widget: "datetime"}
+      - {label: "Series",
+          name: "series",
+          widget: "relation",
+          collection: "series",
+          searchFields: ["title"],
+          valueField: "id",
+          displayFields: ["title"]}
+      - {label: "Summary", name: "summary", widget: "markdown"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+  - name: "series"
+    label: "Series"
+    folder: "content/series"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "series"}
+      - {label: "ID", name: "id", widget: "string"}      
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Summary", name: "summary", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "speaker"
+    label: "Speaker"
+    folder: "content/speakers"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "speaker"}
+      - {label: "ID", name: "title", widget: "string"}
+      - {label: "Last Name", name: "lastName", widget: "string"}
+      - {label: "Other names", name: "otherNames", widget: "string"}
