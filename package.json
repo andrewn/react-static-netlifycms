@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",
+    "netlify-cli": "^1.2.2",
     "serve": "^6.1.0"
   }
 }
